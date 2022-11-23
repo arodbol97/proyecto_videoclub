@@ -39,3 +39,12 @@ echo "<br><br><strong>" . $miJuego->titulo . "</strong>";
 echo "<br>Precio: " . $miJuego->getPrecio() . " euros";
 echo "<br>Precio IVA incluido: " . $miJuego->getPrecioConIva() . " euros";
 $miJuego->muestraResumen();
+
+/*--324--*/
+
+include "Cliente.php";
+
+$soportes = array($miCinta,$miJuego);
+$cliente = new Cliente("Antonio",7,$soportes,7);
+echo "<br>";
+$cliente->muestraResumen();
