@@ -52,9 +52,11 @@ class Cliente
         if(!in_array($s,$this->soportesAlquilados) && count($this->soportesAlquilados)<$this->maxAlquilerConcurrente){
             $alquilado=true;
             $this->numSoportesAlquiados++;
-            echo "<br>Número de soportes alquilados actualizado";
+            echo "<br><strong>Alquilado soporte a</strong>: ".$this->nombre;
+            echo "<br><br>";
+            echo $s->muestraResumen();
+            echo "<br><br>";
             array_push($this->soportesAlquilados,$s);
-            echo "<br>Lista de soportes alquilados actualizada";
         }
         return $alquilado;
     }
