@@ -48,3 +48,11 @@ $soportes = array($miCinta,$miJuego);
 $cliente = new Cliente("Antonio",7,$soportes,7);
 echo "<br>";
 $cliente->muestraResumen();
+
+/*--325--*/
+
+echo "<br>";
+$cliente->alquilar($miDvd);
+if(!$cliente->tieneAlquilado($miDvd)){
+    $cliente->alquilar($miDvd);
+}

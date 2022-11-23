@@ -37,4 +37,26 @@ class Cliente
         echo "<br>Cantidad de alquileres: " . count($this->soportesAlquilados);
     }
 
+    /*--325--*/
+
+    public function tieneAlquilado(Soporte $s) : bool{
+        $alquilado=false;
+        if(in_array($s,$this->soportesAlquilados)){
+            $alquilado=true;
+        }
+        return $alquilado;
+    }
+
+    public function alquilar(Soporte $s) : bool{
+        $alquilado=false;
+        if(!in_array($s,$this->soportesAlquilados) && count($this->soportesAlquilados)<$this->maxAlquilerConcurrente){
+            $alquilado=true;
+            $this->numSoportesAlquiados++;
+            echo "<br>Número de soportes alquilados actualizado";
+            array_push($this->soportesAlquilados,$s);
+            echo "<br>Lista de soportes alquilados actualizada";
+        }
+        return $alquilado;
+    }
+
 }
