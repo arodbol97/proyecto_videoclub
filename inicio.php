@@ -45,7 +45,7 @@ $miJuego->muestraResumen();
 include "Cliente.php";
 
 $soportes = array($miCinta,$miJuego);
-$cliente = new Cliente("Antonio",7,$soportes,7);
+$cliente = new Cliente("Antonio",7);
 echo "<br>";
 $cliente->muestraResumen();
 
@@ -55,4 +55,14 @@ echo "<br>";
 $cliente->alquilar($miDvd);
 if(!$cliente->tieneAlquilado($miDvd)){
     $cliente->alquilar($miDvd);
+}
+
+/*--326--*/
+
+echo "<br>";
+$cliente->listaAlquileres();
+echo "<br>";
+if($cliente->devolver(24)){
+    echo "<br>";
+    $cliente->listaAlquileres();
 }
