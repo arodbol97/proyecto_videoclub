@@ -1,12 +1,6 @@
 <?php
 namespace ProyectoVideoclub;
 
-include_once "Soporte.php";
-include_once "CintaVideo.php";
-include_once "Dvd.php";
-include_once "Juego.php";
-include_once "Cliente.php";
-
 class Videoclub{
     private $nombre;
     private $productos=[];

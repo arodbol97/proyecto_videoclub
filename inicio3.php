@@ -1,6 +1,6 @@
 <?php
 
-include_once "ProyectoVideoclub/Videoclub.php";
+include_once "autoload.php";
 
 use ProyectoVideoclub\Videoclub as V;
 
