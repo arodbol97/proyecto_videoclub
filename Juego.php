@@ -24,7 +24,6 @@ class Juego extends Soporte{
     }
 
     public function muestraResumen(){
-        echo "<br>";
         parent::muestraResumen();
         $this->muestraJugadoresPosibles();
     }

@@ -10,7 +10,7 @@ class Dvd extends Soporte{
     }
 
     public function muestraResumen(){
-        echo "<br>Película en DVD:<br>";
+        echo "Película en DVD:<br>";
         parent::muestraResumen();
         echo "Idiomas: ".$this->idiomas;
         echo "<br>Formato Pantalla: ".$this->formatPantalla;

@@ -33,7 +33,7 @@ class Cliente
 
     public function muestraResumen()
     {
-        echo "<br>Cliente " . $this->nombre;
+        echo $this->nombre;
         echo "<br>Cantidad de alquileres: " . count($this->soportesAlquilados);
     }
 
