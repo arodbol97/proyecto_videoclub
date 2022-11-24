@@ -1,5 +1,5 @@
 <?php
-class Soporte{
+abstract class Soporte{
     public $titulo;
     protected $numero;
     private $precio;
