@@ -1,6 +1,9 @@
 <?php
 namespace ProyectoVideoclub;
 
+use ProyectoVideoclub\Util\CupoSuperadoException;
+use ProyectoVideoclub\Util\SoporteYaAlquiladoException;
+
 class Videoclub{
     private $nombre;
     private $productos=[];
@@ -81,7 +84,13 @@ class Videoclub{
                 $soporte = $producto;
             }
         }
-        $cliente->alquilar($soporte);
+        try{
+            $cliente->alquilar($soporte);
+        }catch(SoporteYaAlquiladoException $e){
+            echo "<strong>".$e."</strong>";
+        }catch(CupoSuperadoException $e){
+            echo "<strong>".$e."</strong>";
+        }
         /*--330--*/
         return $this;
     }

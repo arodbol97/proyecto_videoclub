@@ -1,5 +1,9 @@
 <?php
 namespace ProyectoVideoclub;
+use ProyectoVideoclub\Util\CupoSuperadoException;
+use ProyectoVideoclub\Util\SoporteNoEncontradoException;
+use ProyectoVideoclub\Util\SoporteYaAlquiladoException;
+
 class Cliente
 {
     public $nombre;
@@ -58,6 +62,12 @@ class Cliente
             echo $s->muestraResumen();
             echo "<br><br>";
             array_push($this->soportesAlquilados,$s);
+        } else { /*--334--*/
+            if(in_array($s,$this->soportesAlquilados)){
+                throw new SoporteYaAlquiladoException();
+            } else if(count($this->soportesAlquilados)>=$this->maxAlquilerConcurrente){
+                throw new CupoSuperadoException();
+            }
         }
         /*--330--*/
         return $this;
@@ -82,6 +92,8 @@ class Cliente
             unset($this->soportesAlquilados[$pos]);
             echo $pos;
             echo "<br>Soporte devuelto";
+        } else { /*--334--*/
+            throw new SoporteNoEncontradoException();
         }
         /*--330--*/
         return $this;
