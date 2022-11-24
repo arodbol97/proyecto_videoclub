@@ -28,22 +28,30 @@ class Videoclub{
     public function incluirCintaVideo($titulo,$precio,$duracion){
         $s = new CintaVideo($titulo,$this->numProductos,$precio,$duracion);
         $this->incluirProducto($s);
+        /*--330--*/
+        return $this;
     }
 
     public function incluirDvd($titulo,$precio,$idiomas,$pantalla){
         $s = new Dvd($titulo,$this->numProductos,$precio,$idiomas,$pantalla);
         $this->incluirProducto($s);
+        /*--330--*/
+        return $this;
     }
 
     public function incluirJuego($titulo,$precio,$consola,$minJ,$maxJ){
         $s = new Juego($titulo,$this->numProductos,$precio,$consola,$minJ,$maxJ);
         $this->incluirProducto($s);
+        /*--330--*/
+        return $this;
     }
 
     public function incluirSocio($nombre,$maxAlquileresConcurrentes=3){
         $c = new Cliente($nombre,$this->numSocios,$maxAlquileresConcurrentes);
         array_push($this->socios,$c);
         $this->numSocios++;
+        /*--330--*/
+        return $this;
     }
 
     public function listarProductos(){
@@ -79,5 +87,7 @@ class Videoclub{
             }
         }
         $cliente->alquilar($soporte);
+        /*--330--*/
+        return $this;
     }
 }

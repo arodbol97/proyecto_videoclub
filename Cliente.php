@@ -47,7 +47,7 @@ class Cliente
         return $alquilado;
     }
 
-    public function alquilar(Soporte $s) : bool{
+    public function alquilar(Soporte $s){
         $alquilado=false;
         if(!in_array($s,$this->soportesAlquilados) && count($this->soportesAlquilados)<$this->maxAlquilerConcurrente){
             $alquilado=true;
@@ -58,12 +58,13 @@ class Cliente
             echo "<br><br>";
             array_push($this->soportesAlquilados,$s);
         }
-        return $alquilado;
+        /*--330--*/
+        return $this;
     }
 
     /*--326--*/
 
-    public function devolver(int $numSoporte) : bool{
+    public function devolver(int $numSoporte){
         $alquilado=false;
         $soporteADevolver=null;
 
@@ -81,7 +82,8 @@ class Cliente
             echo $pos;
             echo "<br>Soporte devuelto";
         }
-        return $alquilado;
+        /*--330--*/
+        return $this;
     }
 
     public function listaAlquileres() : void{
