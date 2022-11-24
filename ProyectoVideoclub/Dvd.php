@@ -1,4 +1,5 @@
 <?php
+namespace ProyectoVideoclub;
 class Dvd extends Soporte{
     public $idiomas;
     private $formatPantalla;

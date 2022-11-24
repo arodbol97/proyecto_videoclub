@@ -1,4 +1,5 @@
 <?php
+namespace ProyectoVideoclub;
 
 include_once "Resumible.php";
 

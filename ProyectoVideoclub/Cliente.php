@@ -1,4 +1,5 @@
 <?php
+namespace ProyectoVideoclub;
 class Cliente
 {
     public $nombre;

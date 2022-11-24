@@ -1,4 +1,5 @@
 <?php
+namespace ProyectoVideoclub;
 
 include_once "Soporte.php";
 include_once "CintaVideo.php";

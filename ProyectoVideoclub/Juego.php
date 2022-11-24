@@ -1,4 +1,5 @@
 <?php
+namespace ProyectoVideoclub;
 class Juego extends Soporte{
     public $consola;
     private $minNumJugadores;

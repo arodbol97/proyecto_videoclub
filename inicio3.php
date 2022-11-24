@@ -1,7 +1,10 @@
 <?php
-include_once "Videoclub.php"; // No incluimos nada más
 
-$vc = new Videoclub("Severo 8A");
+include_once "ProyectoVideoclub/Videoclub.php";
+
+use ProyectoVideoclub\Videoclub as V;
+
+$vc = new V("Severo 8A");
 
 //voy a incluir unos cuantos soportes de prueba
 $vc->incluirJuego("God of War", 19.99, "PS4", 1, 1)
