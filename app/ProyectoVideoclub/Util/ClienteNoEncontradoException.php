@@ -7,6 +7,6 @@ class ClienteNoEncontradoException extends VideoclubException{
     }
     public function __toString(): string
     {
-        return "";
+        return "Cliente no encontrado";
     }
 }
