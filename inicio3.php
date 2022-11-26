@@ -45,3 +45,17 @@ try{
 }catch(Exception $e){
     echo "<strong>".$e."</strong>";
 }
+
+/*--337--*/
+//listo socios
+$vc->listarSocios();
+
+//devuelvo el soporte 0 del cliente 0
+$vc->devolverSocioProducto(0,0);
+
+//listo socios
+$vc->listarSocios();
+
+//devuelvo soportes 3 y 2 de cliente 1
+$arrayProds3=array(3,2);
+$vc->devolverSocioProductos(1,$arrayProds3);

@@ -31,6 +31,11 @@ class Cliente
         return $this->numSoportesAlquiados;
     }
 
+    public function getSoportesAlquilados()
+    {
+        return $this->soportesAlquilados;
+    }
+
     public function setNumero($numero)
     {
         $this->numero = $numero;

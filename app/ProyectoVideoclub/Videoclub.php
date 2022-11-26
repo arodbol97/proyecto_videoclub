@@ -3,6 +3,7 @@ namespace ProyectoVideoclub;
 
 use ProyectoVideoclub\Util\CupoSuperadoException;
 use ProyectoVideoclub\Util\SoporteYaAlquiladoException;
+use ProyectoVideoclub\Util\SoporteNoEncontradoException;
 
 class Videoclub{
     private $nombre;
@@ -130,6 +131,73 @@ class Videoclub{
             }
         }else{
             throw new SoporteYaAlquiladoException();
+        }
+    }
+
+    /*--337--*/
+
+    public function devolverSocioProducto(int $numSocio, int $numeroProducto){
+        $clienteCorrecto=false;        
+        $productoCorrecto=false;        
+        foreach ($this->socios as $socio){
+            if($socio->getNumero()==$numSocio){
+                $cliente = $socio;
+                $clienteCorrecto=true;
+            }
+        }
+
+        if($clienteCorrecto){                     
+            for($e=0;$e<count($cliente->getSoportesAlquilados());$e++){                
+                if($cliente->getSoportesAlquilados()[$e]->getNumero()==$numeroProducto){                        
+                    $productoCorrecto=true;
+                }
+            }            
+        }
+        if($clienteCorrecto){            
+            if($productoCorrecto){
+                $cliente->devolver($numeroProducto);
+            }else{
+                throw new SoporteNoEncontradoException();
+            }
+        }else{
+            throw new ClienteNoEncontradoException();
+        }
+        return $this;    
+    }
+
+    public function devolverSocioProductos(int $numSocio, array $numerosProductos){
+        $numAlquilados=0;
+        $clienteCorrecto=false;        
+
+        foreach ($this->socios as $socio){
+            if($socio->getNumero()==$numSocio){
+                $cliente = $socio;
+                $clienteCorrecto=true;
+            }
+        }
+
+        if($clienteCorrecto){
+            for($i=0;$i<count($numerosProductos);$i++){            
+                for($e=0;$e<count($cliente->getSoportesAlquilados());$e++){
+                    if($cliente->getSoportesAlquilados()[$e]->getNumero()==$numerosProductos[$i]){                        
+                        $numAlquilados++;                        
+                    }
+                }
+            }
+
+            if($numAlquilados==count($numerosProductos)){                
+                foreach ($numerosProductos as $numProd){
+                    try{                        
+                        $this->devolverSocioProducto($numSocio,$numProd);
+                    }catch(Exception $e){
+                        echo "<strong>".$e."</strong>";
+                    }
+                }
+            }else{
+                throw new SoporteNoEncontradoException();
+            }
+        }else{
+            throw new ClienteNoEncontradoException();
         }
     }
 }
