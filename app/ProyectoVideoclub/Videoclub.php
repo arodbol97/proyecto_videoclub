@@ -108,4 +108,28 @@ class Videoclub{
 
         return $this->numTotalAlquileres;
     }
+
+    /*--336--*/
+
+    public function alquilarSocioProductos(int $numSocio, array $numerosProductos){
+        $numDisponibles=0;        
+
+        for($i=0;$i<count($numerosProductos);$i++){            
+            for($e=0;$e<count($this->productos);$e++){
+                if($this->productos[$e]->getNumero()==$numerosProductos[$i]){
+                    if(!$this->productos[$e]->alquilado){                        
+                        $numDisponibles++;
+                    }
+                }
+            }
+        }
+
+        if($numDisponibles==count($numerosProductos)){
+            foreach ($numerosProductos as $numProd){
+                $this->alquilaSocioProducto($numSocio,$numProd);
+            }
+        }else{
+            throw new SoporteYaAlquiladoException();
+        }
+    }
 }

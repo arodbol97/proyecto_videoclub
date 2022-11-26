@@ -33,3 +33,15 @@ $vc->alquilaSocioProducto(1,2)
 
 //listo los socios
 $vc->listarSocios();
+
+/*--336--*/
+//alquilo soportes 0 y 1 al socio 0
+$arrayProds=array(0,1);
+$vc->alquilarSocioProductos(0,$arrayProds);
+//intento alquilar soportes 0 y 4 pero 0 ya está alquilado
+$arrayProds2=array(0,4);
+try{
+    $vc->alquilarSocioProductos(1,$arrayProds2);
+}catch(Exception $e){
+    echo "<strong>".$e."</strong>";
+}
