@@ -10,6 +10,8 @@ class Videoclub{
     private $numProductos;
     private $socios=[];
     private $numSocios;
+    private $numProductosAlquilados;
+    private $numTotalAlquileres;
 
     public function __construct($nombre){
         $this->nombre=$nombre;
@@ -93,5 +95,17 @@ class Videoclub{
         }
         /*--330--*/
         return $this;
+    }
+
+    /*--335--*/
+
+    public function getNumProductosAlquilados(){
+        
+        return $this->numProductosAlquilados;
+    }
+
+    public function getNumTotalAlquileres(){
+
+        return $this->numTotalAlquileres;
     }
 }

@@ -62,6 +62,10 @@ class Cliente
             echo $s->muestraResumen();
             echo "<br><br>";
             array_push($this->soportesAlquilados,$s);
+
+            /*--335--*/
+
+            $s->alquilado=true;
         } else { /*--334--*/
             if(in_array($s,$this->soportesAlquilados)){
                 throw new SoporteYaAlquiladoException();
@@ -92,6 +96,10 @@ class Cliente
             unset($this->soportesAlquilados[$pos]);
             echo $pos;
             echo "<br>Soporte devuelto";
+
+            /*--335--*/
+
+            $soporteADevolver->alquilado=false;
         } else { /*--334--*/
             throw new SoporteNoEncontradoException();
         }
