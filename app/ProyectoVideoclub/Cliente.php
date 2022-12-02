@@ -88,24 +88,22 @@ class Cliente
         $alquilado=false;
         $soporteADevolver=null;
 
-        foreach ($this->soportesAlquilados as $s){
-            if($s->getNumero()==$numSoporte){
+        for ($i=0;$i<count($this->soportesAlquilados);$i++){
+            if($this->soportesAlquilados[$i]->getNumero()==$numSoporte){
                 $alquilado=true;
                 $this->numSoportesAlquiados--;
-                echo "<br>Número de soportes alquilados actualizado";
-                $soporteADevolver=$s;
+                $soporteDevuelto = $this->soportesAlquilados[$i];
+                unset($this->soportesAlquilados[$i]);
+                $this->soportesAlquilados = array_values($this->soportesAlquilados);
+                echo "<br>Soporte devuelto";
+                $i=count($this->soportesAlquilados)+1;
             }
         }
-
-        if ($pos = array_search($soporteADevolver,$this->soportesAlquilados) !== false) {
-            unset($this->soportesAlquilados[$pos]);
-            $this->soportesAlquilados = array_values($this->soportesAlquilados);
-            
-            echo "<br>Soporte devuelto";
-
+           
             /*--335--*/
 
-            $soporteADevolver->alquilado=false;
+        if ($alquilado){
+            $soporteDevuelto->alquilado=false;
         } else { /*--334--*/
             throw new SoporteNoEncontradoException();
         }
