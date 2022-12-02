@@ -59,7 +59,7 @@ class Cliente
 
     public function alquilar(Soporte $s){
         $alquilado=false;
-        if(!in_array($s,$this->soportesAlquilados) && count($this->soportesAlquilados)<$this->maxAlquilerConcurrente){
+        if(!in_array($s,$this->soportesAlquilados) && count($this->soportesAlquilados)<=$this->maxAlquilerConcurrente){
             $alquilado=true;
             $this->numSoportesAlquiados++;
             echo "<br><strong>Alquilado soporte a</strong>: ".$this->nombre;
@@ -74,7 +74,7 @@ class Cliente
         } else { /*--334--*/
             if(in_array($s,$this->soportesAlquilados)){
                 throw new SoporteYaAlquiladoException();
-            } else if(count($this->soportesAlquilados)>=$this->maxAlquilerConcurrente){
+            } else if(count($this->soportesAlquilados)>$this->maxAlquilerConcurrente){
                 throw new CupoSuperadoException();
             }
         }

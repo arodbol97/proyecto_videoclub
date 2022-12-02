@@ -22,7 +22,7 @@ class Videoclub{
 
     private function incluirProducto(Soporte $s){
         array_push($this->productos,$s);
-        echo "Incluido soporte ".$this->numProductos."<br>";
+        //echo "Incluido soporte ".$this->numProductos."<br>";
         $this->numProductos++;
     }
 
