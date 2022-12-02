@@ -99,7 +99,8 @@ class Cliente
 
         if ($pos = array_search($soporteADevolver,$this->soportesAlquilados) !== false) {
             unset($this->soportesAlquilados[$pos]);
-            echo $pos;
+            $this->soportesAlquilados = array_values($this->soportesAlquilados);
+            
             echo "<br>Soporte devuelto";
 
             /*--335--*/
