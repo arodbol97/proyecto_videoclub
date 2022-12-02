@@ -12,7 +12,7 @@ for($i=0;$i<count($correctUser);$i++){
             if($_POST["user"]=="admin"){
                 header('Location: mainAdmin.php');
             }else{
-                header('Location: main.php');
+                header('Location: mainCliente.php');
             }
         }
     }

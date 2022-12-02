@@ -125,4 +125,13 @@ class Cliente
         }
     }
 
+    /*--423--*/
+    public function getAlquileres() : array{
+        return $this->soportesAlquilados;
+    }
+
+    public function getUser(){
+        return $this->user;
+    }
+
 }

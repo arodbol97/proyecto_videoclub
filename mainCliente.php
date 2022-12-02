@@ -14,13 +14,20 @@ include_once "autoload.php";
         ->incluirCintaVideo("Los cazafantasmas", 3.5, 107)
         ->incluirCintaVideo("El nombre de la Rosa", 1.5, 140);       
                         
-        $vc->incluirSocio("Amancio Ortega","aortega","aortega")
-        ->incluirSocio("Pablo Picasso","ppicasso","ppicasso", 2);
+        $vc->incluirSocio("Amancio Ortega","admin","admin")
+        ->incluirSocio("Pablo Picasso","usuario","usuario", 2);
         
         $vc->alquilaSocioProducto(1,2)
         ->alquilaSocioProducto(1,3)
                
         ->alquilaSocioProducto(1,6);
+
+        for($i=0;$i<count($vc->getSocios());$i++){
+            if($_SESSION["user"]==$vc->getSocios()[$i]->getUser()){
+                $client=$vc->getSocios()[$i];
+            }
+        }
+        $soportesAlquilados=$client->getAlquileres();
         
 ?>
 <!DOCTYPE html>
@@ -40,11 +47,13 @@ include_once "autoload.php";
         </form>
     </div>
     <div>
+        <h3>Soportes alquilados</h3>
         <?php        
-        //listo los socios
-        $vc->listarSocios();
-        //listo los productos
-        $vc->listarProductos();
+            for($i=0;$i<count($soportesAlquilados);$i++){
+                echo "<br>";
+                $soportesAlquilados[$i]->muestraResumen();
+                echo "<br>";
+            }
         ?>
     </div>
 </body>

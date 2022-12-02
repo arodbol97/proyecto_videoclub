@@ -3,7 +3,6 @@
 include_once "autoload.php";
 
 use ProyectoVideoclub\Videoclub as V;
-
 $vc = new V("Severo 8A");
 
 //voy a incluir unos cuantos soportes de prueba

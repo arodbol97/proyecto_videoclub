@@ -200,4 +200,9 @@ class Videoclub{
             throw new ClienteNoEncontradoException();
         }
     }
+
+    /*--423--*/
+    public function getSocios(){
+        return $this->socios;
+    }
 }
