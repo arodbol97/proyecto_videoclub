@@ -59,11 +59,11 @@ class Videoclub{
         echo "
             <br><br><br>
             Listado de los ".count($this->productos)." productos disponibles
-            <br>
+            <br><br>
         ";
         for($i=0;$i<count($this->productos);$i++){
             echo ($i+1).".- ";
-            echo $this->productos[$i]->muestraResumen()."<br>";
+            echo $this->productos[$i]->muestraResumen()."<br><br>";              
         }
     }
 

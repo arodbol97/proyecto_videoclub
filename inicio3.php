@@ -60,3 +60,4 @@ $vc->listarSocios();
 $arrayProds3=array(2,3);
 $vc->devolverSocioProductos(1,$arrayProds3);
 $vc->listarSocios();
+$vc->listarProductos();
