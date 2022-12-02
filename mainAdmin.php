@@ -33,8 +33,8 @@ session_start();
         ->incluirCintaVideo("Los cazafantasmas", 3.5, 107)
         ->incluirCintaVideo("El nombre de la Rosa", 1.5, 140);       
                         
-        $vc->incluirSocio("Amancio Ortega")
-        ->incluirSocio("Pablo Picasso", 2);
+        $vc->incluirSocio("Amancio Ortega","aortega","aortega")
+        ->incluirSocio("Pablo Picasso","ppicasso","ppicasso", 2);
         
         $vc->alquilaSocioProducto(1,2)
         ->alquilaSocioProducto(1,3)

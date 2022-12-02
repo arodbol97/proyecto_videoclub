@@ -11,11 +11,16 @@ class Cliente
     private $soportesAlquilados;
     private $numSoportesAlquiados;
     private $maxAlquilerConcurrente;
+    /*--422--*/
+    private $user;
+    private $pass;
 
-    public function __construct($nombre, $numero, $maxAlquilerConcurrentes = 3)
+    public function __construct($nombre, $numero, $user, $pass, $maxAlquilerConcurrentes = 3)
     {
         $this->nombre = $nombre;
         $this->numero = $numero;
+        $this->user = $user;
+        $this->pass = $pass;
         $this->soportesAlquilados=[];
         $this->numSoportesAlquiados=0;
         $this->maxAlquilerConcurrente=$maxAlquilerConcurrentes;
@@ -45,6 +50,7 @@ class Cliente
     {
         echo $this->nombre;
         echo "<br>Cantidad de alquileres: " . count($this->soportesAlquilados);
+        echo "<br>Usuario: " . $this->user;
     }
 
     /*--325--*/
@@ -62,10 +68,10 @@ class Cliente
         if(!in_array($s,$this->soportesAlquilados) && count($this->soportesAlquilados)<=$this->maxAlquilerConcurrente){
             $alquilado=true;
             $this->numSoportesAlquiados++;
-            echo "<br><strong>Alquilado soporte a</strong>: ".$this->nombre;
-            echo "<br><br>";
-            echo $s->muestraResumen();
-            echo "<br><br>";
+            //echo "<br><strong>Alquilado soporte a</strong>: ".$this->nombre;
+            //echo "<br><br>";
+            //echo $s->muestraResumen();
+            //echo "<br><br>";
             array_push($this->soportesAlquilados,$s);
 
             /*--335--*/

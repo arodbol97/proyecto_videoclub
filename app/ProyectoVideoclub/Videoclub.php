@@ -47,8 +47,8 @@ class Videoclub{
         return $this;
     }
 
-    public function incluirSocio($nombre,$maxAlquileresConcurrentes=3){
-        $c = new Cliente($nombre,$this->numSocios,$maxAlquileresConcurrentes);
+    public function incluirSocio($nombre,$user,$pass,$maxAlquileresConcurrentes=3){
+        $c = new Cliente($nombre,$this->numSocios,$user,$pass,$maxAlquileresConcurrentes);
         array_push($this->socios,$c);
         $this->numSocios++;
         /*--330--*/
