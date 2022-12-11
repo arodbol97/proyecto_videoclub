@@ -1,26 +1,10 @@
 <?php
-session_start();
 include_once "autoload.php";
+session_start();
 
-        use ProyectoVideoclub\Videoclub as V;
-        
-        $vc = new V("Severo 8A");
-                
-        $vc->incluirJuego("God of War", 19.99, "PS4", 1, 1)
-        ->incluirJuego("The Last of Us Part II", 49.99, "PS4", 1, 1)
-        ->incluirDvd("Torrente", 4.5, "es","16:9")
-        ->incluirDvd("Origen", 4.5, "es,en,fr", "16:9")
-        ->incluirDvd("El Imperio Contraataca", 3, "es,en","16:9")
-        ->incluirCintaVideo("Los cazafantasmas", 3.5, 107)
-        ->incluirCintaVideo("El nombre de la Rosa", 1.5, 140);       
-                        
-        $vc->incluirSocio("Amancio Ortega","aortega","aortega")
-        ->incluirSocio("Pablo Picasso","ppicasso","ppicasso", 2);
-        
-        $vc->alquilaSocioProducto(1,2)
-        ->alquilaSocioProducto(1,3)
-               
-        ->alquilaSocioProducto(1,6);
+use ProyectoVideoclub\Videoclub as V;
+
+$vc = $_SESSION["data"];
         
 ?>
 <!DOCTYPE html>
@@ -37,6 +21,9 @@ include_once "autoload.php";
         <form action="index.php" method="post">
             <input type="hidden" value="cerrarSesion">
             <input type="submit" value="Cerrar sesión">
+        </form>
+        <form action="formCreateCliente.php" method="post">            
+            <input type="submit" value="Crear nuevo cliente">
         </form>
     </div>
     <div>

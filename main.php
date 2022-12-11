@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+$vc = $_SESSION["data"];
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
