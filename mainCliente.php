@@ -15,6 +15,11 @@ $vc = $_SESSION["data"];
 <body style="text-align:center">
     <h2>Bienvenido <?=$_SESSION["user"]?></h2>
     <div>
+        <form action="formUpdateCliente.php" method="post">
+            <input type="hidden" id="user" name="user" value="<?=$_SESSION["user"]?>">
+            <input type="hidden" id="from" name="from" value="mainCliente.php">
+            <input type="submit" value="Actualizar datos">
+        </form>
         <form action="index.php" method="post">
             <input type="hidden" value="cerrarSesion">
             <input type="submit" value="Cerrar sesión">

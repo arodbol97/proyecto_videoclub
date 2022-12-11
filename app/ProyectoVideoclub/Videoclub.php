@@ -73,6 +73,12 @@ class Videoclub{
             echo ($i+1)."- <strong>Cliente ".$i."</strong>: ";
             echo $this->socios[$i]->muestraResumen();
             echo "<br>";
+            echo "<form action='formUpdateCliente.php' method='post'>";
+            echo "  <input type='hidden' id='user' name='user' value='".$this->socios[$i]->getUser()."'>";
+            echo "  <input type='hidden' id='from' name='from' value='mainAdmin.php'>";
+            echo "  <input type='submit' value='Actualizar datos'>";
+            echo "</form>";
+            echo "<br>";
         }
     }
 
@@ -204,5 +210,9 @@ class Videoclub{
     /*--423--*/
     public function getSocios(){
         return $this->socios;
+    }
+
+    public function setSocios($s){
+        $this->socios = $s;
     }
 }

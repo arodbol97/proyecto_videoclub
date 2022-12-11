@@ -134,4 +134,20 @@ class Cliente
         return $this->user;
     }
 
+    public function getPass(){
+        return $this->pass;
+    }
+
+    public function setUser($u){
+        $this->user = $u;
+    }
+
+    public function setPass($p){
+        $this->pass = $p;
+    }
+
+    public function setMaxAlquilerConcurrente($m){
+        $this->maxAlquilerConcurrente = $m;
+    }
+
 }
