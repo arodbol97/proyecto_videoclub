@@ -79,6 +79,11 @@ class Videoclub{
             echo "  <input type='submit' value='Actualizar datos'>";
             echo "</form>";
             echo "<br>";
+            echo "<form action='removeCliente.php' method='post' onsubmit='return confirm(`¿Seguro que quieres borrar al usuario ".$this->socios[$i]->getUser()."?`);'>";
+            echo "  <input type='hidden' id='user' name='user' value='".$this->socios[$i]->getUser()."'>";            
+            echo "  <input type='submit' value='Borrar cliente'>";
+            echo "</form>";
+            echo "<br>";
         }
     }
 
