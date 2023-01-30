@@ -13,26 +13,28 @@ $vc = $_SESSION["data"];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Main</title>
 </head>
 <body style="text-align:center">
-    <h2>Bienvenido <?=$_SESSION["user"]?></h2>
-    <div>
-        <form action="index.php" method="post">
-            <input type="hidden" value="cerrarSesion">
-            <input type="submit" value="Cerrar sesión">
-        </form>
-        <form action="formCreateCliente.php" method="post">            
-            <input type="submit" value="Crear nuevo cliente">
-        </form>
-    </div>
-    <div>
-        <?php        
-        //listo los socios
-        $vc->listarSocios();
+    <header>
+        <h2>Bienvenido <?=$_SESSION["user"]?></h2>
+        <div>
+            <a href="index.php?cs=true"><button>Cerrar Sesión</button></a>
+            <a href="formCreateCliente.php"><button>Crear cliente nuevo</button></a>
+        </div>
+    </header>
+    <section>
+        <?php
         //listo los productos
         $vc->listarProductos();
         ?>
-    </div>
+    </section>
+    <aside>
+        <?php
+        //listo los socios
+        $vc->listarSocios();
+        ?>
+    </aside>
 </body>
 </html>

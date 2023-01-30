@@ -7,7 +7,7 @@ use ProyectoVideoclub\Videoclub as V;
 
 $vc = $_SESSION["data"];
 
-$user = $_POST["user"];
+$user = $_GET["user"];
 
 $socios = $vc->getSocios();
 

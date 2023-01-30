@@ -56,10 +56,8 @@ class Videoclub{
     }
 
     public function listarProductos(){
-        echo "
-            <br><br><br>
-            Listado de los ".count($this->productos)." productos disponibles
-            <br><br>
+        echo "            
+            <h3>Listado de los ".count($this->productos)." productos disponibles</h3>            
         ";
         for($i=0;$i<count($this->productos);$i++){
             echo ($i+1).".- ";
@@ -68,21 +66,15 @@ class Videoclub{
     }
 
     public function listarSocios(){
-
+        echo "
+            <h3>Lista clientes</h3>
+        ";
         for($i=0;$i<count($this->socios);$i++){
-            echo ($i+1)."- <strong>Cliente ".$i."</strong>: ";
+            echo " <strong>Cliente ".($i+1)."</strong>: ";
             echo $this->socios[$i]->muestraResumen();
             echo "<br>";
-            echo "<form action='formUpdateCliente.php' method='post'>";
-            echo "  <input type='hidden' id='user' name='user' value='".$this->socios[$i]->getUser()."'>";
-            echo "  <input type='hidden' id='from' name='from' value='mainAdmin.php'>";
-            echo "  <input type='submit' value='Actualizar datos'>";
-            echo "</form>";
-            echo "<br>";
-            echo "<form action='removeCliente.php' method='post' onsubmit='return confirm(`¿Seguro que quieres borrar al usuario ".$this->socios[$i]->getUser()."?`);'>";
-            echo "  <input type='hidden' id='user' name='user' value='".$this->socios[$i]->getUser()."'>";            
-            echo "  <input type='submit' value='Borrar cliente'>";
-            echo "</form>";
+            echo "<a href='formUpdateCliente.php?user=".$this->socios[$i]->getUser()."&from=mainAdmin.php'><button>Actualizar Cliente</button></a>";
+            echo "<a href='removeCliente.php?user=".$this->socios[$i]->getUser()."'><button onclick='return confirm(`¿Seguro que quieres borrar al usuario ".$this->socios[$i]->getUser()."?`);'>Borrar Cliente</button></a>";
             echo "<br>";
         }
     }

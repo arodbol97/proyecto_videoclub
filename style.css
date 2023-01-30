@@ -1,0 +1,78 @@
+body{
+    background-color: rgb(220, 216, 255);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header{
+    width: 100%;
+}
+
+section{
+    width: 70%;
+}
+
+aside{
+    width: 28%;
+}
+
+section h3{
+    width: 100%;
+    background-color: mediumspringgreen;
+}
+
+aside h3{
+    width: 100%;
+    background-color: mediumslateblue;
+}
+
+form{
+    margin: auto;
+    padding: 60px;
+    background-color: rgb(131, 255, 255);
+    max-width: 400px;
+    border-radius: 20px;
+}
+
+button{
+    margin: 10px;
+    background-color: rgb(131, 255, 255);
+    border-radius: 8px;
+    border: 1px solid white;
+}
+
+h1{
+    text-align: center;
+}
+
+.error{
+    color: red;
+    text-align: center;
+}
+
+.form_elem{
+    margin-bottom: 15px;
+    padding: 2%;
+    border: none;
+    width: 98%;
+
+}
+
+.form_elem :focus{
+    background-color: rgb(243, 243, 243);
+}
+
+#motive{
+    resize: vertical;
+    height: 100px;
+}
+
+#submit{
+    background-color: rgb(0, 132, 255);
+    color: white;
+    width: 102%;
+}
+
+#submit:hover{
+    background-color: rgb(0, 98, 190);
+}
